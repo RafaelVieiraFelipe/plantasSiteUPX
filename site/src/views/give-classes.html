@@ -22,12 +22,12 @@
                 <a href="/site/src/views/">
                     <img src="/site/public/images/icons/back.svg" alt="Voltar">
                 </a>
-                <img src="/site/public/images/logo.svg" alt="Proffy">
+                <img src="/site/public/images/botanicare.png" alt="Proffy">
             </div>
 
             <div class="header-content">
-                <strong>Que incrível que você quer dar aulas</strong>
-                <p>Primeiro passo, é preencher esse formulário de inscrição</p>
+                <strong>Cadastro de plantas</strong>
+                <p>Adicione informações para que o sistema funcione de forma específica para a sua planta</p>
             </div>
 
         </header>
@@ -36,89 +36,47 @@
             <form action="/save-classes" id="create-class" method="POST">
                 <fieldset>
 
-                    <legend>Seus dados</legend>
+                    <legend>Dados da planta</legend>
 
                     <div class="input-block">
-                        <label for="name">Nome completo</label>
+                        <label for="name">Nome da planta</label>
                         <input name="name" id="name" required>
                     </div>
 
                     <div class="input-block">
-                        <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
+                        <label for="avatar">Link da foto <small>(comece com https://) / (opcional)</small></label>
                         <input name="avatar" id="avatar" type="url" required>
                     </div>
 
                     <div class="input-block">
-                        <label for="whatsapp">Whatsapp <small>(somente números)</small></label>
+                        <label for="whatsapp">Porcentagem ideal para a umidade do solo <small>(somente números)</small></label>
                         <input name="whatsapp" id="whatsapp" type="number" required>
                     </div>
 
                     <div class="textarea-block">
-                        <label for="bio">Biografia</label>
-                        <textarea name="bio" id="bio" required></textarea>
+                        <label for="bio">Intencidade e tempo indeal para a planta receber luz:</label>
+                        <br>
+                        <label for="bio">Tempo em horas<small>(somente números)</small>:</label>
+                        <input name="bio" id="bio" required>
                     </div>
 
-                </fieldset>
-
-                <fieldset>
-                    <legend>Sobre a aula</legend>
                     <div class="select-block">
-                        <label for="subject">Matéria</label>
+                        <label for="subject">Intencidade:</label>
                         <select name="subject" id="subject" required>
                             <option value="">Selecione uma opção</option>
-                            {%for subject in subjects %}
-                                <option value="{{loop.index}}">
-                                    {{subject}}
-                                </option>
-                            {%endfor%}
+                            <option value="1">Luz direta</option>
+                            <option value="2">Luz indireta</option>
+                            <option value="3">Sem luz</option>
                         </select>
                     </div>
-
-                    <div class="input-block">
-                        <label for="cost">Custo da sua hora/aula
-                            <small>(R$)</small>
-                        </label>
-                        <input name="cost" type="cost" id="cost" type="number" required>
-                    </div>
-
-                </fieldset>
-
-                <fieldset id="schedule-items">
-                    <legend>Horários disponíveis
-                        <button type="button" id="add-time">+ Novo horário</button>
-                    </legend>
-
-                    <div class="schedule-item">
-
-                        <div class="select-block">
-                            <label for="weekday">Dia da semana</label>
-                            <select name="weekday[]" required>
-                                {%for weekday in weekdays %}
-                                    <option value="{{loop.index0}}">
-                                        {{weekday}}
-                                    </option>
-                                {%endfor%}
-                            </select>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="time_from">Das</label>
-                            <input type="time" name="time_from[]" required>
-                        </div>
-
-                        <div class="input-block">
-                            <label for="time_to">Até</label>
-                            <input type="time" name="time_to[]" required>
-                        </div>
-
-                    </div>
-                </fieldset>
-
             </form>
 
+            <br>
+            <br>
+            
             <footer>
                 <p>
-                    <img src="/images/icons/warning.svg" alt="Aviso importante">
+                    <img src="/site/public/images/icons/warning.svg" alt="Aviso importante">
                     Importante! <br>
                     Preencha todos os dados
                 </p>
