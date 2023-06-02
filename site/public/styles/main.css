@@ -33,6 +33,10 @@
     font-size: 60%; /* controle das medas rem */
 }
 
+#botanicare {
+  height: 20%;
+}
+
 * {
     margin: 0;
     padding: 0;
